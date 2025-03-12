@@ -1,0 +1,8 @@
+POST http://localhost:8071/users/createUser
+Content-Type: application/json
+
+{
+    "name": "Isaac de Lyra",
+    "email":"isaaclyra@email.com",
+    "password": "test123"
+}
