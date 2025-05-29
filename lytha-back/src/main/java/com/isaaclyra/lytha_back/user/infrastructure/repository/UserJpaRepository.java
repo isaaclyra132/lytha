@@ -1,4 +1,4 @@
-package com.isaaclyra.lytha_back.user.infrastructure;
+package com.isaaclyra.lytha_back.user.infrastructure.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

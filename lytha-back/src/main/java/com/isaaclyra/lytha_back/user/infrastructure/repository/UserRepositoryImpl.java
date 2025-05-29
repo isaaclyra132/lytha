@@ -1,7 +1,8 @@
-package com.isaaclyra.lytha_back.user.infrastructure;
+package com.isaaclyra.lytha_back.user.infrastructure.repository;
 
 import com.isaaclyra.lytha_back.user.domain.User;
 import com.isaaclyra.lytha_back.user.domain.UserRepository;
+import com.isaaclyra.lytha_back.user.infrastructure.UserMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

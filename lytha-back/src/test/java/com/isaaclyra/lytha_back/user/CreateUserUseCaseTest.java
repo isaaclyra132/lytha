@@ -1,8 +1,8 @@
 package com.isaaclyra.lytha_back.user;
 
-import com.isaaclyra.lytha_back.user.application.CreateUserRequest;
-import com.isaaclyra.lytha_back.user.application.CreateUserUseCase;
-import com.isaaclyra.lytha_back.user.application.UserDTO;
+import com.isaaclyra.lytha_back.user.application.dto.CreateUserRequest;
+import com.isaaclyra.lytha_back.user.application.service.CreateUserUseCase;
+import com.isaaclyra.lytha_back.user.application.dto.UserResponse;
 import com.isaaclyra.lytha_back.user.domain.PasswordEncoder;
 import com.isaaclyra.lytha_back.user.domain.Role;
 import com.isaaclyra.lytha_back.user.domain.User;
@@ -46,7 +46,7 @@ public class CreateUserUseCaseTest {
             return user;
         });
 
-        UserDTO result = createUserUseCase.execute(request);
+        UserResponse result = createUserUseCase.execute(request);
 
         // Assert: Verifica o DTO retornado
         assertNotNull(result);

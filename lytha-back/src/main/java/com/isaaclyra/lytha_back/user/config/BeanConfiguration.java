@@ -1,7 +1,7 @@
 package com.isaaclyra.lytha_back.user.config;
 
-import com.isaaclyra.lytha_back.user.application.CreateUserUseCase;
-import com.isaaclyra.lytha_back.user.application.ListUsersUseCase;
+import com.isaaclyra.lytha_back.user.application.service.CreateUserUseCase;
+import com.isaaclyra.lytha_back.user.application.service.ListUsersUseCase;
 import com.isaaclyra.lytha_back.user.domain.PasswordEncoder;
 import com.isaaclyra.lytha_back.user.domain.UserRepository;
 import org.springframework.context.annotation.Bean;

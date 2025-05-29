@@ -1,4 +1,4 @@
-POST http://localhost:8071/users/createUser
+POST http://localhost:8071/users
 Content-Type: application/json
 
 {
@@ -6,3 +6,7 @@ Content-Type: application/json
     "email":"isaaclyra@email.com",
     "password": "test123"
 }
+
+######
+
+GET http://localhost:8071/users

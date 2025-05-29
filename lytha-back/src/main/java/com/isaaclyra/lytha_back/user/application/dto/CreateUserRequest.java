@@ -1,4 +1,4 @@
-package com.isaaclyra.lytha_back.user.application;
+package com.isaaclyra.lytha_back.user.application.dto;
 
 public record CreateUserRequest(
         String name,
