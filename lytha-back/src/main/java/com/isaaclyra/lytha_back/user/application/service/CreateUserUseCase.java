@@ -6,6 +6,7 @@ import com.isaaclyra.lytha_back.user.domain.PasswordEncoder;
 import com.isaaclyra.lytha_back.user.domain.Role;
 import com.isaaclyra.lytha_back.user.domain.User;
 import com.isaaclyra.lytha_back.user.domain.UserRepository;
+import com.isaaclyra.lytha_back.user.infrastructure.UserMapper;
 
 import java.util.Set;
 
@@ -21,14 +22,11 @@ public class CreateUserUseCase {
     public UserResponse execute(CreateUserRequest request) {
         String hashedPassword = passwordEncoder.encode(request.password());
 
-        User user = new User();
-        user.setEmail(request.email());
-        user.setName(request.name());
+        User user = UserMapper.fromCreateUserRequest(request);
         user.setPassword(hashedPassword);
         user.setRoles(Set.of(Role.USER));
 
         User savedUser = userRepository.save(user);
-
-        return new UserResponse(savedUser.getEmail(), savedUser.getName(), savedUser.getRoles());
+        return UserMapper.toResponse(savedUser);
     }
 }

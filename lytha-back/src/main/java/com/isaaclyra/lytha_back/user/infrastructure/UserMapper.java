@@ -1,5 +1,6 @@
 package com.isaaclyra.lytha_back.user.infrastructure;
 
+import com.isaaclyra.lytha_back.user.application.dto.CreateUserRequest;
 import com.isaaclyra.lytha_back.user.application.dto.UserResponse;
 import com.isaaclyra.lytha_back.user.domain.User;
 import com.isaaclyra.lytha_back.user.infrastructure.repository.UserEntity;
@@ -18,5 +19,9 @@ public class UserMapper {
 
     public static UserResponse toResponse(User user) {
         return new UserResponse(user.getEmail(), user.getName(), user.getRoles());
+    }
+
+    public static User fromCreateUserRequest(CreateUserRequest request) {
+        return new User(null, request.email(),null, request.name(), null);
     }
 }

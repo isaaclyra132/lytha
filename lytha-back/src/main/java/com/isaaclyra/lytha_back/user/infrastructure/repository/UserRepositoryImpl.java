@@ -3,6 +3,7 @@ package com.isaaclyra.lytha_back.user.infrastructure.repository;
 import com.isaaclyra.lytha_back.user.domain.User;
 import com.isaaclyra.lytha_back.user.domain.UserRepository;
 import com.isaaclyra.lytha_back.user.infrastructure.UserMapper;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,7 +18,11 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    @Transactional
     public User save(User user) {
+        if(userJpaRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("Email já cadastrado");
+        }
         UserEntity userEntity = UserMapper.toEntity(user);
         UserEntity savedEntity = userJpaRepository.save(userEntity);
         return UserMapper.toDomain(savedEntity);
